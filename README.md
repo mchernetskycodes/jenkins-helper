@@ -8,81 +8,79 @@
 [![license](https://img.shields.io/github/license/liying2008/jenkins-helper.svg)](https://github.com/liying2008/jenkins-helper/blob/master/LICENSE)
 
 
-一款能够极大地提高工作效率的 **Chrome/Firefox 浏览器扩展程序** 。
+A browser extension that significantly enhances work efficiency for Chrome/Firefox.
 
-## 下载地址
+## Download Link
 
-### 在线安装
+### Install Online
 
 [Chrome Web Store](https://chrome.google.com/webstore/detail/jenkins-helper/lkjoiakaidioklnfdejmnoebfbjcbemh) / [Firefox Add-ons](https://addons.mozilla.org/addon/jenkins-helper/) / [Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/pelamneechdnppiophlmioibcjkidifc)
 
-### 下载文件离线安装
+### Download file for offline installation
 
 [https://github.com/liying2008/jenkins-helper/releases](https://github.com/liying2008/jenkins-helper/releases)
 
-**扩展离线安装方法：**
+**Extension offline installation method：**
 
-- **Chrome**：打开 `chrome://extensions` 页面，打开 **开发者模式** ，重启浏览器（`chrome://restart`），重新进入 `chrome://extensions` 页面，将crx文件拖至当前页面上即可。
-- **Firefox**：将xpi文件拖至浏览器任一页面上即可。
+- **Chrome**：Open `chrome://extensions` page, open **Developer Mode**, restart the browser (`chrome://restart`), re-enter the `chrome://extensions` page, and drag the crx file to the current page.
+- **Firefox**：Just drag the xpi file to any page in the browser.
 
 
-## 功能介绍
+## Features
 
-该扩展程序可以：
+This extension can:
 
-1. **Job 监控**: 监控 Jenkins Job 的构建状态，构建完毕后显示通知。提供“监视器”界面，可以随时查看所关注的 Job 的构建状态。提供筛选功能，可根据构建结果筛选 Job。
+1. **Job Monitoring**: Monitor the build status of Jenkins Job and display notifications after the build is completed. Provides a "monitor" interface to view the build status of the Job of interest at any time. Provides a filtering function to filter jobs based on build results.
 
 ![Monitor](screenshots/monitor.png)
 
-> 注意：状态更新的频率以及通知频率可以在设置页更改。默认是60s更新一次状态，每次构建结束显示通知。
+> Note: The frequency of status updates and notification frequency can be changed in the settings page. The default is to update the status every 60 seconds and display a notification after each build.
 
 
-2. **构建参数查看**： 在每一个 Build 页面及其子页面下可方便快速查看构建信息以及构建参数。并提供查看上一次/下一次构建参数的按钮，可直接下载完整的构建日志到本地。
+2. **Build parameter viewing**: Under each Build page and its sub-pages, you can quickly and easily view build information and build parameters. It also provides buttons to view the last/next build parameters, and you can directly download the complete build log to the local.
 
 ![Parameters](screenshots/params.png)
 
-> 注意：只有在构建页面及其子页面下才有数据，其他页面显示 “**No Data**”。 如：`http://127.0.0.1:8080/jenkins/job/Pipeline2/4/` 是构建页面，`http://127.0.0.1:8080/jenkins/job/Pipeline2/4/console` 是子页面。  
+> Note: There is data only under the build page and its subpages, other pages display “**No Data**”：`http://127.0.0.1:8080/jenkins/job/Pipeline2/4/` is to build the page,`http://127.0.0.1:8080/jenkins/job/Pipeline2/4/console` is a subpage.
+> **Support the Blue Ocean page**。
 
-> **支持 Blue Ocean 页面**。
 
-
-3. **节点磁盘空间监控**: 监控 Jenkins 节点的磁盘空间大小，如果节点剩余空间大小小于或等于给定的阈值，则弹框告警。并提供“监视器”页面，可随时查看节点的剩余空间大小。
+3. **Node Disk Space Monitoring**: Monitor the disk space of the Jenkins node. If the remaining space of the node is less than or equal to the given threshold, an alert will pop up. It also provides a "Monitor" page to view the remaining space of the node at any time.
 
 ![Node Monitor](screenshots/node_monitor.png)
 
-> 注意：状态更新的频率可以在设置页更改。默认是2小时更新一次状态，每次浏览器启动后会自动检查最新的状态。
+> Note: The frequency of status updates can be changed in the settings page. The default is to update the status every 2 hours, and the latest status will be automatically checked every time the browser is started.
 
 
-4. **地址栏智能搜索**： 在地址栏输入 **`jk`**，按 <kbd>Space</kbd> 键进入 Jenkins Job 智能搜索模式，输入Job名称可快速匹配到对应的 Jenkins Job 链接。
+4. **Address bar smart search**: Enter **`jk`** in the address bar, press the <kbd>Space</kbd> key to enter the Jenkins Job smart search mode, enter the job name to quickly match the corresponding Jenkins Job link.
 
 ![Omnibox](screenshots/omnibox.png)
 
-> 注意：使用此功能需要提前在设置页配置好 **地址栏智能搜索（Omnibox Intelligent Search）** 。
-
-5. **Job 统计**： 统计Job的 **运行节点** / **定时构建时间表** / **是否禁用** / **是否允许并发** 等信息。
+> Note: To use this function, you need to configure **Address Bar Intelligent Search (Omnibox Intelligent Search)** in advance on the settings page.
+5. **Job Statistics**: Statistics of Job's **running nodes** / **regular build schedule** / **whether it is disabled** / **whether concurrency is allowed** and other information.
 
 ![Job Statistics](screenshots/job_statistics.png)
 
-> 注意：使用此功能需要提前在设置页配置好 **Job 统计设置（Job Statistics Settings）** 。
+> Note: To use this function, you need to configure **Job Statistics Settings** on the settings page in advance.
 
-6. **参数暂存与恢复**： 在 **Build/Rebuild** 页面底部会生成两个按钮，分别是 **Stash Parameters** 和 **Recover Parameters**，点击 **Stash Parameters** 可以将当前页面填写的参数值保存起来，点击 **Recover Parameters** 可以将上次保存的参数值恢复到当前页面。
+6. **Parameter Staging and Recovery**: Two buttons will be generated at the bottom of the **Build/Rebuild** page, namely **Stash Parameters** and **Recover Parameters**. Click **Stash Parameters* * You can save the parameter values filled in on the current page. Click **Recover Parameters** to restore the last saved parameter values to the current page.
 
 ![Params Stash And Recover](screenshots/params_stash_and_recover.png)
 
-> 注意：每一次新保存的参数都会将之前保存的参数覆盖掉，即 **Stash Parameters** 只会保存**一份**参数值。   
-> 支持 跨Job、跨Jenkins 使用，即 A Job 保存的参数可以恢复给 B Job 。
+> Note: Each newly saved parameter will overwrite the previously saved parameter, that is, **Stash Parameters** will only save **one** parameter value.
+> Supports cross-Job and cross-Jenkins use, that is, the parameters saved by A Job can be restored to B Job.
 
 
-7. **自定义设置**： 可以针对自己的独特需求进行一些个性化的设置。
+7. **Customized Settings**: You can make some personalized settings according to your unique needs.
 
 ![Settings](screenshots/settings.png)
 
-> 注意：更改设置之后，记得点击页面底部的 **保存设置（Save Settings）** 以应用更改。
+> Note: After changing settings, remember to click **Save Settings** at the bottom of the page to apply the changes.
 
 
 ## Tips
 
-1. 为了让该扩展可以顺利访问 Jenkins API 而不依赖用户在 Jenkins 网站的登录状态，建议在设置界面配置 Jenkins 的 API Token ，如下图所示：
+1. In order for the extension to smoothly access the Jenkins API without relying on the user's login status on the Jenkins website, it is recommended to configure the Jenkins API Token in the settings interface, as shown in the following figure:
 
 ![Jenkins Token Settings](screenshots/jenkins_token_settings.png)
 
